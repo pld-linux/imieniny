@@ -2,7 +2,7 @@ Summary:	Gives a saints names whose name one bears
 Summary(pl):	Skrypt wypisuj±cy aktualnych solenizantów
 Name:		imieniny
 Version:	1.1.5
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	http://infoludek.com.pl/~slawek/%{name}-%{version}.tar.gz
@@ -36,5 +36,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
+%dir	%{_datadir}/%{name}
 %lang(pl) %{_datadir}/%{name}/pl_PL
 %lang(pl) %{_datadir}/%{name}/pl
