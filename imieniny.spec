@@ -5,8 +5,6 @@ Version:	1.1.0
 Release:	1
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	http://infoludek.com.pl/~slawek/%{name}-%{version}.tar.gz
 Source1:        imieniny.sh
 URL:		http://infoludek.com.pl/~slawek/imieniny.html
