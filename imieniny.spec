@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://infoludek.com.pl/~slawek/%{name}-%{version}.tar.gz
-Source1:        imieniny.sh
+Source1:	%{name}.sh
 URL:		http://infoludek.com.pl/~slawek/imieniny.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
@@ -32,7 +32,7 @@ install	%{SOURCE1}	$RPM_BUILD_ROOT%{_bindir}/%{name}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files 
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
 %lang(pl) %{_datadir}/%{name}/pl_PL
