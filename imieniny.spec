@@ -9,9 +9,9 @@ Source0:	http://infoludek.com.pl/~slawek/%{name}-%{version}.tar.gz
 # Source0-md5:	310f9d7edf6462d489c79a2988ed78fa
 Source1:	%{name}.sh
 URL:		http://infoludek.com.pl/~slawek/imieniny.html
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildArch:	noarch
 Requires:	sh-utils
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Small utility gives saints whose name one bears current day
