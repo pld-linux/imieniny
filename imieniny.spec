@@ -35,6 +35,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc czytajto.txt
 %attr(755,root,root) %{_bindir}/%{name}
 %dir	%{_datadir}/%{name}
 %lang(pl) %{_datadir}/%{name}/pl_PL
