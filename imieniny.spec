@@ -14,10 +14,10 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Small utility gives saints whose name one bears current day
+Small utility gives saints whose name one bears current day.
 
 %description -l pl
-Niewielki skrypt wypisuj±cy solenizantów z danego dnia
+Niewielki skrypt wypisuj±cy solenizantów z danego dnia.
 
 %prep
 %setup -q -c
