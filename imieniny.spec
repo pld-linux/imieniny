@@ -13,7 +13,6 @@ URL:		http://infoludek.com.pl/~slawek/imieniny.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
 Requires:	sh-utils
-Requires:	awk
 
 %description
 Small utility gives saints whose name one bears current day
