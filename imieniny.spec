@@ -1,5 +1,5 @@
 Summary:	Gives a saints names whose name one bears
-Summary(pl):	Skrypt wypisuj±cy aktualnych solenizantów
+Summary(pl.UTF-8):   Skrypt wypisujÄ…cy aktualnych solenizantÃ³w
 Name:		imieniny
 Version:	1.1.5
 Release:	3
@@ -16,8 +16,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Small utility gives saints whose name one bears current day.
 
-%description -l pl
-Niewielki skrypt wypisuj±cy solenizantów z danego dnia.
+%description -l pl.UTF-8
+Niewielki skrypt wypisujÄ…cy solenizantÃ³w z danego dnia.
 
 %prep
 %setup -q -c
