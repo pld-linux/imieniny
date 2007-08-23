@@ -4,7 +4,6 @@
 DATADIR=/usr/share/imieniny
 LANGNAME=
 
-
 print_nameday() {
      mfile=$DATADIR/$LANG/`date +'%m'`.txt
      if [ -f $mfile ]; then 
@@ -26,11 +25,16 @@ if [ ! -d $DATADIR/$LANGNAME ]; then
 fi
 
 case "$LANGNAME" in
-    pl_PL|pl)
+    pl_PL*|pl)
 	 echo -n "`date +%Y.%m.%d`, imieniny "  
 	 print_nameday
 	 exit $?
-    ;;
-    esac
-fi
+	 ;;
+    *)
+	echo "Error: $LANG directory exists, but is not supported."
+	exit 1
+	;;
+esac
+
+# Shouldn't reach that point:
 exit 1
