@@ -39,8 +39,8 @@ install pl_PL/*		$RPM_BUILD_ROOT%{_datadir}/%{name}/pl_PL
 install pl_PL.UTF-8/*	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl_PL.UTF-8
 install	%{SOURCE1}	$RPM_BUILD_ROOT%{_bindir}/%{name}
 
-# For Th we use UTF-8 by default:
-ln -sf pl_PL.UTF-8	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl
+# For Ac we use latin2 by default:
+ln -sf pl_PL	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl
 
 %clean
 rm -rf $RPM_BUILD_ROOT
