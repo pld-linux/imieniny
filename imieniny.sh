@@ -13,9 +13,12 @@ print_nameday() {
      fi	
 }
 
-
-if [ ${LANG}x != x ]; then
-    LANGNAME=$LANG
+if [ -n "$LC_ALL" ]; then
+    LANGNAME="$LC_ALL"
+elif [ -n "${LC_TIME}" ]; then
+    LANGNAME="$LC_TIME"
+elif [ -n "${LANG}" ]; then
+    LANGNAME="$LANG"
 else 
     LANGNAME="C"
 fi
