@@ -2,7 +2,7 @@ Summary:	Gives a saints names whose name one bears
 Summary(pl.UTF-8):	Skrypt wypisujący aktualnych solenizantów
 Name:		imieniny
 Version:	1.1.5
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/System
 Source0:	http://infoludek.com.pl/~slawek/%{name}-%{version}.tar.gz
@@ -10,7 +10,8 @@ Source0:	http://infoludek.com.pl/~slawek/%{name}-%{version}.tar.gz
 Source1:	%{name}.sh
 URL:		http://infoludek.com.pl/~slawek/imieniny.html
 BuildRequires:	iconv
-Requires:	sh-utils
+Requires:	coreutils
+Requires:	iconv
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,22 +25,18 @@ Niewielki skrypt wypisujący solenizantów z danego dnia.
 %setup -q -c
 
 %build
-mkdir pl_PL{,.UTF-8}
-cp [0-9][0-9].txt pl_PL
+mkdir pl_PL.UTF-8
 for file in [0-9][0-9].txt; do
-	iconv -f latin2 -t utf-8 $file > pl_PL.UTF-8/$file.utf8
-	mv pl_PL.UTF-8/$file.utf8 pl_PL.UTF-8/$file
+	iconv -f latin2 -t utf-8 $file > pl_PL.UTF-8/$file
 done
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/pl_PL{,.UTF-8}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/pl_PL.UTF-8}
 
-install pl_PL/*		$RPM_BUILD_ROOT%{_datadir}/%{name}/pl_PL
-install pl_PL.UTF-8/*	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl_PL.UTF-8
 install	%{SOURCE1}	$RPM_BUILD_ROOT%{_bindir}/%{name}
-
-# For Th we use UTF-8 by default:
+install pl_PL.UTF-8/*	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl_PL.UTF-8
+ln -sf pl_PL.UTF-8	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl_PL
 ln -sf pl_PL.UTF-8	$RPM_BUILD_ROOT%{_datadir}/%{name}/pl
 
 %clean
@@ -49,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc czytajto.txt
 %attr(755,root,root) %{_bindir}/%{name}
-%dir	%{_datadir}/%{name}
+%dir %{_datadir}/%{name}
 %lang(pl) %{_datadir}/%{name}/pl_PL.UTF-8
 %lang(pl) %{_datadir}/%{name}/pl_PL
 %lang(pl) %{_datadir}/%{name}/pl
