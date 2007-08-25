@@ -7,7 +7,7 @@ LANGNAME=
 print_nameday() {
      mfile=$DATADIR/$LANG/`date +'%m'`.txt
      if [ -f $mfile ]; then 
-	awk -v dzien=`date +'%-d'` '{if(NR==dzien){print}}' $mfile
+	awk -v dzien=`date +'%-d'` '{if(NR==dzien){print}}' $mfile | iconv -f utf-8
      else 
 	return 1
      fi	
@@ -15,7 +15,7 @@ print_nameday() {
 
 if [ -n "$LC_ALL" ]; then
     LANGNAME="$LC_ALL"
-elif [ -n "${LC_TIME}" ]; then
+elif [ -n "$LC_TIME" ]; then
     LANGNAME="$LC_TIME"
 elif [ -n "${LANG}" ]; then
     LANGNAME="$LANG"
