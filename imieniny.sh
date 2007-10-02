@@ -15,8 +15,8 @@ print_nameday() {
 
 if [ -n "$LC_ALL" ]; then
     LANGNAME="$LC_ALL"
-elif [ -n "$LC_TIME" ]; then
-    LANGNAME="$LC_TIME"
+elif [ -n "$LC_MESSAGES" ]; then
+    LANGNAME="$LC_MESSAGES"
 elif [ -n "${LANG}" ]; then
     LANGNAME="$LANG"
 else 
@@ -24,17 +24,18 @@ else
 fi
 
 if [ ! -d $DATADIR/$LANGNAME ]; then
+    echo "Unsupported locale configuration." >&2
     exit 1
 fi
 
 case "$LANGNAME" in
     pl_PL*|pl)
-	 echo -n "`date +%Y.%m.%d`, imieniny "  
+	 echo -n "`date +%x`, imieniny "  
 	 print_nameday
 	 exit $?
 	 ;;
     *)
-	echo "Error: $LANG directory exists, but is not supported."
+	echo "Error: $LANG directory exists, but is not supported." >&2
 	exit 1
 	;;
 esac
